@@ -54,9 +54,9 @@ exports.update_a_projet = async (req, res) => {
 exports.delete_a_projet = async (req, res) => {
   try {
     await Projet.findByIdAndDelete(req.params.projetId);
-    res.status(200).json({ message: "Projet deleted" });
+    res.status(200).json({ message: `Projet ${projet.title} deleted` });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Projet not deleted" });
+    res.status(500).json({ message: "Deletion failed" });
   }
 };
