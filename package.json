@@ -11,5 +11,8 @@
     "url": "Portfolio"
   },
   "author": "GanaF4ll",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
 }
