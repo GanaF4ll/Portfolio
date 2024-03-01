@@ -18,6 +18,14 @@ let projetSchema = new Schema({
     type: String,
   },
   completed: Boolean,
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
+  updated_at: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Projet", projetSchema);
