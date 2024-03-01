@@ -1,9 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const port = 3000;
+const port = 4444;
 
 mongoose.connect("mongodb://127.0.0.1:27017/Portfolio");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use("/projets", require("./routes/projetRoute"));
+
+app.listen(port, () => {
+  console.log(`Portfolio app is running on port ${port}`);
+});
