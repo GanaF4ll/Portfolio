@@ -36,3 +36,27 @@ exports.read_a_projet = async (req, res) => {
     res.status(500).json({ message: "Projet not found" });
   }
 };
+
+exports.update_a_projet = async (req, res) => {
+  try {
+    const projet = await Projet.findByIdAndUpdate(
+      req.params.projetId,
+      req.body,
+      { new: true }
+    );
+    res.status(200).json({ message: `Projet updated: ${projet.title}` });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Projet not updated" });
+  }
+};
+
+exports.delete_a_projet = async (req, res) => {
+  try {
+    await Projet.findByIdAndDelete(req.params.projetId);
+    res.status(200).json({ message: "Projet deleted" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Projet not deleted" });
+  }
+};
