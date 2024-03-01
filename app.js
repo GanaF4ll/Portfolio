@@ -4,3 +4,6 @@ const app = express();
 const port = 3000;
 
 mongoose.connect("mongodb://127.0.0.1:27017/Portfolio");
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
